@@ -7,20 +7,26 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Formulář byl odeslán</h1>
     <?php
-    $cartype = filter_input(INPUT_POST, 'cartype');
-    $fuel = filter_input(INPUT_POST, 'fuel');
-    $vybava = filter_input(INPUT_POST, 'vybava');
-    $color = filter_input(INPUT_POST, 'color');
-
-    echo "Model: $cartype";
-    echo "</br>";
-    echo "Palivo: $fuel";
-    echo "</br>";
-    echo "Výbava: $vybava";
-    echo "</br>";
-    echo "Color: $color";
-    ?>
+    $submit = filter_input(INPUT_POST, 'submit');    
+    if(isset($submit)) {
+        echo "Formulář byl odeslán";
+    
+    
+    $cartype = $_POST['modelvozu'];
+    $fuel = $_POST['palivo'];
+    $celvybava = $_POST['celvýbava']; 
+    $color = $_POST['colortype'];  
+       echo "Vybraný model: $cartype";?>
+       <br>
+       <?php echo "Vybraná barva: $color";?>
+       <br>
+       <?php foreach ($celvybava as $vybava){?>
+        <?php echo "Přidaná výbava: $vybava";?> 
+        <br>
+        <?php    
+       }
+       }
+     ?>
 </body>
 </html>
